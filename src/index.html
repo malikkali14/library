@@ -122,7 +122,7 @@
     
         <main class="p-4 md:ml-64 h-auto pt-20">
             <div id = "display" class="grid text-white grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                
+            
             
                 
             </div>
@@ -147,22 +147,35 @@
         function renderBook() {
             let display = document.querySelector('#display');
 
-
-            for(let i = 0; i < myLibrary.length; i++){
+            for(let i = (myLibrary.length - 1); i < myLibrary.length; i++){
                 let div = document.createElement('div');
                 let hfour = document.createElement('h4');
                 let p = document.createElement('p');
+                let btnDiv = document.createElement('div');
+                let deleteBtn = document.createElement('button');
+                let updateBtn = document.createElement('button');
+
 
                 div.classList.add("w-full", "max-w-sm", "p-4",  "rounded-lg", "shadow", "sm:p-8", "bg-gray-800", "border-gray-700")
                 hfour.classList.add("mb-2", "text-2xl", "font-bold", "tracking-tight", "text-white")
                 p.classList.add("font-normal", "text-gray-400");
+                btnDiv.classList.add("grid", "grid-cols-2", "gap-2", "mt-5", "text-center");
+                deleteBtn.classList.add("flex", "items-center", "justify-center", "p-2", "text-base", "font-medium", "w-full", "rounded-lg", "text-white", "bg-red-500", "hover:bg-red-700", "group")
+                updateBtn.classList.add("flex", "items-center", "justify-center", "p-2", "text-base", "font-medium", "w-full", "rounded-lg", "text-white", "bg-yellow-500", "hover:bg-yellow-700", "group")
+                deleteBtn.setAttribute('id', 'deletebtn');
+                updateBtn.setAttribute('id', 'updatebtn');
 
                 display.appendChild(div);
                 div.appendChild(hfour);
                 div.appendChild(p);
+                div.appendChild(btnDiv);
+                btnDiv.appendChild(updateBtn);
+                btnDiv.appendChild(deleteBtn);
 
                 hfour.textContent = myLibrary[i].title;
                 p.textContent = myLibrary[i].desc;
+                updateBtn.textContent = "Update Book";
+                deleteBtn.textContent = "Delete Book";
 
             }
         }
