@@ -7,7 +7,7 @@
     <link href="/dist/output.css" rel="stylesheet">
 
 </head>
-<body>
+<body class = "bg-gray-900">
     <div class="antialiased bg-gray-900">
         <!-- Nav Bar -->
         <nav class="px-4 py-2.5 bg-gray-800 border-gray-700 fixed left-0 right-0 top-0 z-50">
@@ -121,55 +121,10 @@
         </aside>
     
         <main class="p-4 md:ml-64 h-auto pt-20">
-            <div class="grid text-white grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                <div class="w-full max-w-sm p-4  rounded-lg shadow sm:p-8 bg-gray-800 border-gray-700">
-                    <h4 class="mb-2 text-2xl font-bold tracking-tight text-white">Noteworthy technology acquisitions 2021</h4>
-                    <p class="font-normal text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                </div>
+            <div id = "display" class="grid text-white grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                
             
-                <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-32 md:h-64"
-                ></div>
-                <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-32 md:h-64"
-                ></div>
-                <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-32 md:h-64"
-                ></div>
-                </div>
-                <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-96 mb-4"
-                ></div>
-                <div class="grid grid-cols-2 gap-4 mb-4">
-                <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-                ></div>
-                <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-                ></div>
-                <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-                ></div>
-                <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-                ></div>
-                </div>
-                <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-96 mb-4"
-                ></div>
-                <div class="grid grid-cols-2 gap-4">
-                <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-                ></div>
-                <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-                ></div>
-                <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-                ></div>
-                <div
-                class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-                ></div>
+                
             </div>
         </main>
     </div>
@@ -190,8 +145,24 @@
         }
         
         function renderBook() {
+            let display = document.querySelector('#display');
+
+
             for(let i = 0; i < myLibrary.length; i++){
-                console.log('hi');
+                let div = document.createElement('div');
+                let hfour = document.createElement('h4');
+                let p = document.createElement('p');
+
+                div.classList.add("w-full", "max-w-sm", "p-4",  "rounded-lg", "shadow", "sm:p-8", "bg-gray-800", "border-gray-700")
+                hfour.classList.add("mb-2", "text-2xl", "font-bold", "tracking-tight", "text-white")
+                p.classList.add("font-normal", "text-gray-400");
+
+                display.appendChild(div);
+                div.appendChild(hfour);
+                div.appendChild(p);
+
+                hfour.textContent = myLibrary[i].title;
+                p.textContent = myLibrary[i].desc;
 
             }
         }
